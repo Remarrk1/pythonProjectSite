@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+
+
+{% block content %}
+<div class="btn-container">
+  <a href="{% url 'menu' %}"><button class="primary-btn">Создать заказ <i class="fa-solid fa-plus"></i></button></a>
+  <a href="{% url 'order_list' %}"><button class="primary-btn">Просмотреть заказы <i class="fas fa-shopping-bag"></i> </button></a>
+  <a href="{% url 'generate_report_all' %}"><button class="primary-btn">Скачать отчет <i class="fa-solid fa-download"></i></i></button></a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,72 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+  <div class="containertable">
+    <h1>Список заказов</h1>
+    <table  class="table" style="width: 100%";>
+      <thead>
+        <tr>
+          <th scope="col">Номер заказа</th>
+          <th scope="col">Статус</th>
+          <th scope="col">Стол</th>
+          <th scope="col">Дата и время</th>
+          <th scope="col">Официант</th>
+          <th scope="col">Содержание заказа</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Итого</th>
+          <th scope="col">Удалить заказ</th>
+          <th scope="col">Получить отчет</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+          <tr>
+            <td>{{ order.pk }}</td>
+            <td class="stat"><form method="post">
+              {% csrf_token %}
+              <select name="{{order.id}}">
+                {% for status in statuss %}
+                  {% if status == order.status %}
+                    <option value="{{status.id}}" selected>{{status.status}}</option>
+                  {% else %}}
+                    <option value="{{status.id}}">{{status.status}}</option>
+                  {% endif %}}
+                {% endfor %}
+              </select>
+              <button type="submit" class="stat btn" style="background-color: transparent;"><i class="fa-solid fa-square-check fa-2xl" style="color: #1fbd46;"></i></button>
+            </form>
+            </td>
+            <td>{{ order.number_table_id }}</td>
+            <td>{{ order.data }}</td>
+            <td>{{ order.worker }}</td>
+            <td>
+              <ul class="orders">
+                {% for order_content in order.order_content_set.all %}
+                  <li class="orders">{{ order_content.dish.name_dish }} x{{ order_content.number_of_servings }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td>
+              {% for order_content in order.order_content_set.all %}
+                <li class="orderscost">{{ order_content.cost }}</li>
+              {% endfor %}
+            </td>
+            <td class="total">{{ order.cost }}</td>
+            <td class="report">
+              <form action="{% url 'order_delete' order.id %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit"  class="del" ><i class="fa-solid fa-trash"></i></button>
+              </form>
+            </td>
+            <td class="report"><a href="{% url 'order_report' order.id %}"><i class="fa-regular fa-file-pdf fa-2xl" style="color: #375572;"></i></a></td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5" class="text-center">Пока нет заказов</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

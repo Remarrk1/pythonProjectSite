@@ -1,0 +1,45 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+
+<form class="search-form" method="GET">
+  <input class="search-input" type="text" name="q" placeholder="Поиск" value="{{ query|default:'' }}">
+  <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>
+
+   <div class="menu">
+      <div class="row">
+
+        <div class="bar">
+          <div class="categories">
+              <!--Отображаем типы и отображаем имя и ссылку -->
+              <a href="{% url 'menu' %}"><button class="bar-menu">Все блюда</button></a>
+                {% for t in types %}
+                    <a href="{{t.get_absolute_url}}"><button class="bar-menu">{{t.name_type}}</button></a>
+                {% endfor %}
+          </div>
+        </div>
+
+        <div class="col-md-8">
+                {% for dish in dishes %}
+                        <div class="content">
+                            <h3>{{ dish.name_dish }}</h3>
+                            <p class="text">{{ dish.description }}</p>
+                            <div class="details">
+                                <p>{{ dish.weight }} гр</p>
+                                <p>{{ dish.calories }} ккал</p>
+                                <p>{{ dish.price }} ₽</p>
+                                <form action="{% url 'add_to_cart' dish.id %}" method="POST" target="_self">
+                                {% csrf_token %}
+                                    <button class="btn btn-primary">Добавить <i class="fa-solid fa-plus"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                {% endfor %}
+        </div>
+      </div>
+   </div>
+
+
+{% endblock content %}

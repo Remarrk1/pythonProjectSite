@@ -1,0 +1,63 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Обязательные мета-теги -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- в head -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap, иконки и шрифт -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+    <script src="https://kit.fontawesome.com/454c53f2a5.js" crossorigin="anonymous"></script>
+
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Cайт ресторана</title>
+    {% endif %}
+
+</head>
+
+<body>
+    <div class="header-line">
+          <div class="header-logo">
+            <i class="fa-solid fa-fire fa-2xl" style="color: #161e16;"></i>
+          </div>
+          <div class='nav'>
+                <a class='nav-item' href="{% url 'index' %}">ГЛАВНАЯ</a>
+                <a class='nav-item' href="{% url 'menu' %}">МЕНЮ</a>
+                <a class='nav-item' href="{% url 'cart' %}">ЗАКАЗ</a>
+          </div>
+
+          <div class="navbar-nav">
+                {%if request.user.is_authenticated %}
+  			    <!--<span>Hi {{ request.user.username | title }}</span>-->
+  			    <a class="nav-item" href="{% url 'logout' %}">ВЫЙТИ</a>
+  		        {%else%}
+  			    <a class="nav-item" href="{% url 'login' %}">ВОЙТИ</a>
+  		        {%endif%}
+          </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+         {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Футер закреплен внизу, независимо от количества постов на странице -->
+    <footer class="foot">
+      <p><a href="{% url 'index' %}">© Разработка подсистемы учета заказов ресторана 2023</a></p>
+    </footer>
+
+</body>
+</html>

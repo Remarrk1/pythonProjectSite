@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+body, html {
+ width:100%;
+ height:100%
+
+}
+
+/*Шаблон*/
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  margin:0;
+  /*background-image: url("https://phonoteka.org/uploads/posts/2022-02/1643893216_15-phonoteka-org-p-spetsii-fon-18.jpg");*/
+  height:100vh;
+  background-image: url("https://phonoteka.org/uploads/posts/2022-02/1643893216_15-phonoteka-org-p-spetsii-fon-18.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
+  /*background-color: #38cacb*/
+}
+
+/*Шапка header line*/
+.header-line {
+    margin:0;;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #3e6c51;
+    height:50px;
+}
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 45px;
+    transition: color 0.3s linear;
+}
+.nav-item:hover {
+    color: #262626;
+}
+.num:hover {
+    color: #262626;
+}
+
+.num {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s linear;
+}
+
+/*Конец блока header line*/
+
+/*Кнопки на главном экране с выбором действий*/
+.primary-btn {
+  font-size: 20px;
+  padding: 15px 30px;
+  border: none;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: scale(1.1);
+  background-color: #5a9472;
+}
+
+.primary-btn:active {
+  background-color: #ccc;
+    border: none;
+}
+.primary-btn:focus {
+  outline: none;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+/*Конец блока*/
+
+
+                                /* Страница меню*/
+/*Разметка страницы menu*/
+.container{
+    margin:0;
+}
+.row{
+    margin:0px;
+}
+.col-md-8{
+    padding: 40px 40px;
+
+}
+.col-md-4{
+    padding: 40px 20px;
+}
+
+/*Список левого меню категорий*/
+.bar-menu{
+  display: block;
+  border: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-bottom: 10px; /* добавляем отступ между кнопками */
+  width: 100%; /* устанавливаем ширину кнопок */
+  text-align: center; /* выравниваем текст по центру */
+  padding: 10px 20px; /* задаем отступы */
+  background-color: #5a9472; /* изменяем фон кнопок */
+  color: #fff; /* изменяем цвет текста */
+
+}
+
+.bar-menu:hover {
+  transform: scale(1.1);
+  background-color: #464646;
+}
+.bar{
+    margin-left:auto;
+    margin-right: auto;
+    padding-top: 40px;
+}
+.categories {
+  background-color: rgba(114, 108, 108, 0.73);
+  padding: 18px;
+}
+.categories a {
+  text-decoration: none;
+}
+/*Конец левого меню*/
+
+/*Cтраница menu-основной контент*/
+.menu{
+    margin:50px 100px;
+}
+
+/*Блоки с блюдами оформление*/
+.content {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 2px solid #2f4838;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.details{
+    display:flex;
+    justify-content: space-between;
+    padding-top:15px;
+}
+
+/*Поиск*/
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-input {
+  padding: 8px 16px;
+  margin-top: 30px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #70af8b;
+  color: #fff;
+  margin-top: 30px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #2091ef;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #70af8b;
+    border:none;
+}
+.btn-primary:hover {
+  background-color: #4f6e5d;
+}
+
+/*КОРЗИНА*/
+.container-fluid  h5,h1{
+    color: #f2f2f2;
+}
+.container_cart{
+    background: rgb(116, 138, 123);
+}
+.cart_list {
+  width: 50%;
+  border-collapse: collapse;
+  margin:auto;
+}
+/*Кнопка оформить заказ+общая стоимость*/
+.cart_list input[type="number"] {
+  width: 50px;
+}
+/*Кнопка оформить заказ+общая стоимость*/
+.total {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.table_cart {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #ffffff;
+}
+
+.table_cart th, td {
+  text-align: center;
+}
+/*КОНЕЦ КОРЗИНЫ*/
+
+/*СПИСОК БЛЮД*/
+
+.table {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+
+}
+.containertable h1{
+    text-align: center;
+}
+.table th, td {
+  text-align:left;
+}
+
+.table td:nth-child(3) {
+  text-align: center;
+}
+.table th:nth-child(6) {
+  text-align: center;
+}
+.table th:nth-child(2) {
+  text-align: center;
+}
+.table td:first-child {
+  text-align: center;
+}
+.orders {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.orders li {
+    margin-bottom: 10px;
+}
+.orderscost{
+    list-style-type: none;
+     margin-bottom: 10px;
+}
+.total {
+  color: #6db25b;
+  font-weight: bold;
+}
+.total h4{
+  color: #314138;
+  font-weight: bolder;
+}
+
+
+/*Кнока получить отчет и удалить заказ*/
+.report{
+    text-align: center;
+}
+
+.del{
+    background-color: transparent;
+    border: none;
+    color: #375572;
+    cursor:pointer;
+}
+.del:hover{
+    background-color: transparent;
+    border: none;
+    color: #5f95c9;
+    cursor:pointer;
+}
+
+ /*НИЗ САЙТА*/
+footer {
+  background-color: #f2f2f2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+    margin-top: 50px;
+}
+
+footer p {
+ margin:2px;
+ text-align:center;
+ padding:0 40px;
+ color:#fff;
+ font-size:12px;
+}
+
+footer a{
+  color:#777
+}
+/*блок Footer*/
+footer a:hover {
+  color:#777;
+  text-decoration: none;
+}
+
+.auth{
+    background: #f2f2f2;
+}
